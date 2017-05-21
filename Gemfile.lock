@@ -39,9 +39,12 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    attr_encrypted (3.0.3)
+      encryptor (~> 3.0.0)
     bcrypt (3.1.11-x86-mingw32)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
+    encryptor (3.0.0)
     erubis (2.7.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -114,6 +117,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  attr_encrypted (~> 3.0.0)
   bcrypt (~> 3.1.7)
   byebug
   jwt

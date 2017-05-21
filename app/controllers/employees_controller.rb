@@ -41,11 +41,10 @@ class EmployeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
-      @employee = WorkExperience.find({employee: @employee})
     end
 
     # Only allow a trusted parameter "white list" through.
     def employee_params
-      params.require(:employee).permit(:name, :role, :birth_date)
+      params.require(:employee).permit(:name, :role, :birth_date, :address, :ssn, :driver_license, :day_start_work)
     end
 end
