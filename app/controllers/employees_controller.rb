@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.paginate(:page => params[:page], :per_page => 10)
     render json: pagination_dict(@employees)
+                     .to_json(:include => {:location => {:except => [:created_at, :updated_at]}}, :except => :location_id)
   end
 
   # GET /employees/1
@@ -38,13 +39,13 @@ class EmployeesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_employee
-      @employee = Employee.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def employee_params
-      params.require(:employee).permit(:name, :role, :birth_date, :address, :ssn, :driver_license, :day_start_work)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def employee_params
+    params.require(:employee).permit(:name, :role, :birth_date, :address, :ssn, :driver_license, :day_start_work)
+  end
 end

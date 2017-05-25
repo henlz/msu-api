@@ -7,16 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!([{
-  name: 'Henrique',
-  email: 'henrique@example.com',
-  password: '12345'
-}, {
-  name: 'Joares',
-  email: 'henrique@example.com',
-  password: '12345'
-}])
+                  name: 'Henrique',
+                  email: 'henrique@example.com',
+                  password: '12345'
+              }, {
+                  name: 'Joares',
+                  email: 'henrique@example.com',
+                  password: '12345'
+              }])
 
-Employee.create([
-  { name: 'Henrique Zago', role: 0, birth_date: Date.new },
-  { name: 'Heloisy Zago', role: 1, birth_date: Date.new }
-])
+locations = Location.create([
+                    {name: 'Pensacola'},
+                    {name: 'Jacksonville'}
+                ])
+
+Employee.create!([
+                    {name: 'Henrique Zago', role: 0, birth_date: Date.new, ssn: '123456789', location: locations.first},
+                    {name: 'Heloisy Zago', role: 1, birth_date: Date.new, ssn: '123456782', location: locations.last}
+                ])

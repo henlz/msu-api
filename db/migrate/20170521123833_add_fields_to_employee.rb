@@ -4,5 +4,6 @@ class AddFieldsToEmployee < ActiveRecord::Migration[5.0]
     add_column :employees, :driver_license, :string
     add_column :employees, :ssn, :string
     add_column :employees, :address, :string
+    add_column :employees, :salary, :float
   end
 end
