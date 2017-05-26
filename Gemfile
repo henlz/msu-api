@@ -16,8 +16,6 @@ gem 'puma', '~> 3.0'
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -33,8 +31,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'simple_command'
 
-# SSN Encryption
-gem "attr_encrypted", "~> 3.0.0"
+# Serializer
+gem 'active_model_serializers', '~> 0.8.3'
+
+# SSN Encryption and Validation
+gem 'attr_encrypted', '~> 3.0.0'
+gem 'ssn_validator'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
