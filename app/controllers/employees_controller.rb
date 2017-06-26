@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.paginate(:page => params[:page], :per_page => 10)
     render json: @employees,
+           each_serializer: EmployeeSerializer,
            meta: make_pagination_dict(@employees),
            meta_key: :pagination,
            root: :objects
@@ -12,7 +13,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1
   def show
-    render json: @employee
+    render json: @employee, serializer: nil
   end
 
   # POST /employees
