@@ -3,8 +3,9 @@ class WorkedDaysController < ApplicationController
 
   # GET /worked_days
   def index
-    @worked_days = WorkedDay.paginate(:page => params[:page], :per_page => 10)
+    @worked_days = WorkedDay.order(:week_number).paginate(:page => params[:page], :per_page => 10)
     render json: @worked_days,
+           each_serializer: WorkedDaySerializer,
            meta: make_pagination_dict(@worked_days),
            meta_key: :pagination,
            root: :objects
@@ -52,6 +53,6 @@ class WorkedDaysController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def worked_day_params
-    params.require(:worked_day).permit(:days, :salary, :birth_date, :address, :ssn, :driver_license, :day_start_work)
+    params.require(:worked_day).permit(:days, :salary, :extra, :deductions, :observations, :week_number, :employee_id)
   end
 end
